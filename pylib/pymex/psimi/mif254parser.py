@@ -636,9 +636,11 @@ class Mif254Parser():
         #             <primaryRef db="pubmed" dbAc="MI:0446" id="12437929" refType="primary-reference" refTypeAc="MI:0358"/>
         #         </xref>
         #     </bibref>
-        
-        e10t['label'] = dom.xpath( "./mif:names/mif:shortLabel/text()",
-                                   namespaces = self.ns )[0]
+        if len(dom.xpath( "./mif:names/mif:shortLabel/text()", namespaces = self.ns)) != 0:
+            e10t['label'] = dom.xpath( "./mif:names/mif:shortLabel/text()",
+                                    namespaces = self.ns )[0]
+        else:
+            e10t['label'] = None
         
         name = dom.xpath( "./mif:names/mif:fullName/text()",
                           namespaces = self.ns ) 
