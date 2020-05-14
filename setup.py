@@ -3,9 +3,6 @@ import os
 from distutils.util import convert_path
 
 ldesc =[]
-
-with open( "PROJECT.md", "r") as fh:
-        long_description = fh.read()
                 
 pkg_dir = convert_path('pylib/pymex')
 version_file = open(os.path.join(pkg_dir, 'VERSION'))
