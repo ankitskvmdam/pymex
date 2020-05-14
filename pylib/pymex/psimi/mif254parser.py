@@ -620,8 +620,11 @@ class Mif254Parser():
         e10t = {}
         e10t['dom'] = dom
         
-        e10t['rid'] =  dom.xpath( "./@id",
-                                  namespaces = self.ns )[0]
+        if len(dom.xpath( "./@id", namespaces = self.ns)) != 0:
+            e10t['rid'] =  dom.xpath( "./@id",
+                                    namespaces = self.ns )[0]
+        else:
+            e10t['rid'] = None
         self.crid = e10t['rid']
             
         #     <names>
