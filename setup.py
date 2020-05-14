@@ -12,7 +12,7 @@ version_file = open(os.path.join(pkg_dir, 'VERSION'))
 version = version_file.read().strip()
 
 setuptools.setup( name="pymex-lukasz99",
-                  version=version,
+                  version=0.0.12,
                   author="Lukasz Salwinski",
                   author_email="lukasz@mbi.ucla.edu",
                   description="PSI-MI/IMEx Data Access",
