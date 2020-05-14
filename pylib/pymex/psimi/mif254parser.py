@@ -527,9 +527,11 @@ class Mif254Parser():
 
         host['ac'] = hdom.xpath( ".//@ncbiTaxId",
                                 namespaces = self.ns )[0]
-        
-        host['label'] = hdom.xpath( ".//mif:shortLabel/text()",
-                                   namespaces = self.ns )[0]
+        if len(hdom.xpath( ".//mif:shortLabel/text()", namespaces = self.ns)) != 0:
+            host['label'] = hdom.xpath( ".//mif:shortLabel/text()",
+                                    namespaces = self.ns )[0]
+        else:
+            host['label'] = None
         
         name = hdom.xpath( ".//mif:fullName/text()",
                           namespaces = self.ns ) 
